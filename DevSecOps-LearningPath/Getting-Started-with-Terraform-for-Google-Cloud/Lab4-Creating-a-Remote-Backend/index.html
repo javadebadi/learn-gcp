@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>First tune <code>terraform init</code> and then <code>terraform apply</code> with 'main_1.tf'</p>
+    <p>Second run <code>terraform init -migrate-state</code> and then <code>terraform apply</code>  with 'main_2.tf' to move state file to create bucket for backend state.</p>
+    <p>Third run <code>terraform init -migrate-state</code> and then <code>terraform apply</code>  with 'main_3.tf' to move state back to local.</p>
+    <p>Run <code>terraform destroy</code> to destroy the bucket</p>
+</body>
+</html>
