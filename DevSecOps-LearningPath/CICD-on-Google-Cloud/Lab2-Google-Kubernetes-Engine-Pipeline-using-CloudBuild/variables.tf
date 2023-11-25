@@ -48,12 +48,26 @@ variable "git_config" {
   description = "configuration of the git global user in OS"
 }
 
-# variable "repository_url" {
-#   description = "URL of the public GitHub repository"
-#   default = "https://github.com/GoogleCloudPlatform/cloud-code-samples/"
-# }
+variable "app_google_source_repo_name" {
+  type = string
+  description = "Name of the google source git repository for app"
+}
 
-# variable "destination_path" {
-#   description = "Local path where the repository will be cloned"
-#   default     = "."
-# }
+variable "env_google_source_repo_name" {
+  type = string
+  description = "Name of the google source git repository for environment"
+}
+
+variable "repository_url" {
+  description = "URL of the public GitHub repository"
+  default = "https://github.com/GoogleCloudPlatform/gke-gitops-tutorial-cloudbuild"
+}
+
+variable "destination_path" {
+  description = "Local path where the repository will be cloned"
+  default     = "hello-cloudbuild-app"
+}
+
+variable "container_tag_name" {
+  description = "Name of the tag to use for container"
+}

@@ -1,4 +1,4 @@
-project_id = "qwiklabs-gcp-00-8cb0c774c14c"
+project_id = "qwiklabs-gcp-03-8d537ca84f12"
 project_name = "qwiklabs-gcp-00-8cb0c774c14c"
 project_number = 497283868777
 region = "us-central1"
@@ -28,3 +28,8 @@ git_config = {
   username = "javadebadi"
   email = "javad.ebadi.1990@gmail.com"
 }
+
+app_google_source_repo_name = "hello-cloudbuild-app"
+env_google_source_repo_name = "hello-cloudbuild-env"
+
+container_tag_name = "zyx"
