@@ -24,3 +24,9 @@ variable "zone" {
   description = "Default Zone"
   default     = "northamerica-northeast2-a"
 }
+
+variable "app_name" {
+  type        = string
+  description = "Name of the app"
+  default     = "my-app"
+}
