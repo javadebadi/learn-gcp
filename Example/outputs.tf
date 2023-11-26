@@ -18,3 +18,12 @@ output "docker_artifacts_registry_id" {
     value = module.docker_registry.id
 }
  
+output "git_google_source_repo_name" {
+    description = "Name of the git repo for the app in the google source git server"
+    value = module.git_google_source.repo_name
+}
+ 
+output "git_google_source_repo_url" {
+    description = "URL of the git repo for the app in the google source git server"
+    value  = module.git_google_source.repo_url
+}

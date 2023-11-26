@@ -1,5 +1,7 @@
-project_id = "qwiklabs-gcp-01-9d2afb498175"
-project_name = "qwiklabs-gcp-01-9d2afb498175"
-project_number = 349976920434
-region = "us-west1"
-zone = "us-west1-a"
+project_id = "qwiklabs-gcp-02-67e4f257e5e9"
+project_name = "qwiklabs-gcp-02-67e4f257e5e9"
+project_number = 757163025833
+region = "us-central1"
+zone = "us-central1-a"
+app_name = "my-app"
+app_git_repo_name = "my-app-source"
