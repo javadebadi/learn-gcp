@@ -1,3 +1,9 @@
+module "enabled_google_apis_and_services" {
+    source = "./google_apis"
+    project_id = var.project_id
+    api_services = var.api_services
+}
+
 module "app_static_ip" {
     source = "./static_ip"
 }

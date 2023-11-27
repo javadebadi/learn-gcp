@@ -25,6 +25,11 @@ variable "zone" {
   default     = "northamerica-northeast2-a"
 }
 
+variable "api_services" {
+    description = "List of api services that should be enabled for the project"
+    type = list(string)
+}
+
 variable "app_name" {
   type        = string
   description = "Name of the app"
