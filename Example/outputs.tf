@@ -47,3 +47,8 @@ output "app_github_pat_secret_id" {
     description = "Id of the secret storage for the app github PAT"
     value = module.app_github_pat.secret_id
 }
+
+output "google_map_api_key_secret_name" {
+    description = "Name of the secret for google map API"
+    value = module.google_map_api_key_secret.secret_name
+}

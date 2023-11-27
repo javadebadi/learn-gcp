@@ -50,3 +50,8 @@ variable "env_git_repo_name" {
     type = string
     description = "Name of the github and google source repo of the env"
 }
+
+variable "google_map_api_key_secret_id" {
+    type = string
+    default = "google-map-api-key" 
+}

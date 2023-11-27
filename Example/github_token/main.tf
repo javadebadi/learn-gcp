@@ -1,5 +1,5 @@
 resource "google_secret_manager_secret" "github_pat" {
-  secret_id = "gh-${var.secret_id}"
+  secret_id = "${var.secret_id}"
   replication {
     auto {}
   }

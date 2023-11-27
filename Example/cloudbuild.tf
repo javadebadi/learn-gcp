@@ -2,7 +2,7 @@ resource "google_cloudbuild_trigger" "push_to_app_repo" {
   name     = "hell-cloudbuild"
   project  = var.project_id
 
-  depends_on = [ module.docker_registry, module.module.git_google_source ]
+  depends_on = [ module.docker_registry, module.git_google_source ]
 
   trigger_template {    
     project_id = var.project_id
@@ -14,6 +14,7 @@ resource "google_cloudbuild_trigger" "push_to_app_repo" {
     _REGION = var.region
     _ZONE = var.zone
     _REPOSITORY_NAME =  "${var.app_name}-ar"
+    _GOOGLE_MAP_API_KEY_SECRET_NAME = var.google_map_api_key_secret_id
   }
 
    build {
@@ -22,7 +23,14 @@ resource "google_cloudbuild_trigger" "push_to_app_repo" {
     step {
       name = "gcr.io/cloud-builders/docker"
       id = "build"
-      args = ["build", "-t", "", "${_REGION}-docker.pkg.dev/$PROJECT_ID/$_REPOSITORY_NAME/hello-cloudbuild:$SHORT_SHA", "."]
+      args = ["build", "-t", "$${_REGION}-docker.pkg.dev/$PROJECT_ID/$_REPOSITORY_NAME/hello-cloudbuild:$SHORT_SHA", "./backend"]
+    }
+
+    available_secrets {
+      secret_manager {
+         env = "GOOGLE_MAP_API_KEY"
+         version_name = "projects/$PROJECT_ID/secrets/$_GOOGLE_MAP_API_KEY_SECRET_NAME/versions/latest"
+      }
     }
 
 
@@ -32,7 +40,7 @@ resource "google_cloudbuild_trigger" "push_to_app_repo" {
     step {
         name = "gcr.io/cloud-builders/docker"
         id = "Push"
-        args = ["push", "${_REGION}-docker.pkg.dev/$PROJECT_ID/$__REPOSITORY_NAME/hello-cloudbuild:$SHORT_SHA"]
+        args = ["push", "$${_REGION}-docker.pkg.dev/$PROJECT_ID/$__REPOSITORY_NAME/hello-cloudbuild:$SHORT_SHA"]
     }
 
 
