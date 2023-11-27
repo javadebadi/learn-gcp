@@ -49,4 +49,6 @@ module "app_github_pat" {
 module "google_map_api_key_secret" {
     source = "./single_secret"
     secret_id = var.google_map_api_key_secret_id
+
+    depends_on = [ time_sleep.wait_120_seconds ]
 }

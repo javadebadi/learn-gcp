@@ -24,6 +24,7 @@ resource "google_cloudbuild_trigger" "push_to_app_repo" {
       name = "gcr.io/cloud-builders/docker"
       id = "build"
       args = ["build", "-t", "$${_REGION}-docker.pkg.dev/$PROJECT_ID/$_REPOSITORY_NAME/hello-cloudbuild:$SHORT_SHA", "./backend"]
+      secret_env =  ["GOOGLE_MAP_API_KEY"]  # Ensure GOOGLE_MAP_API_KEY is referenced
     }
 
     available_secrets {
@@ -40,7 +41,7 @@ resource "google_cloudbuild_trigger" "push_to_app_repo" {
     step {
         name = "gcr.io/cloud-builders/docker"
         id = "Push"
-        args = ["push", "$${_REGION}-docker.pkg.dev/$PROJECT_ID/$__REPOSITORY_NAME/hello-cloudbuild:$SHORT_SHA"]
+        args = ["push", "$${_REGION}-docker.pkg.dev/$PROJECT_ID/$_REPOSITORY_NAME/hello-cloudbuild:$SHORT_SHA"]
     }
 
 
@@ -51,4 +52,14 @@ resource "google_cloudbuild_trigger" "push_to_app_repo" {
 #   included_files = ["**/*"]  # Build on any file change
 
 #    filename = "cloudbuild.yaml"  # This file should be present in your repo
+}
+
+
+resource "google_project_iam_binding" "secret_accessor_binding" {
+  project = var.project_id # Replace with your project ID
+  role    = "roles/secretmanager.secretAccessor"
+
+  members = [
+    "serviceAccount:${var.project_number}@cloudbuild.gserviceaccount.com",
+  ]
 }
