@@ -30,6 +30,11 @@ variable "api_services" {
     type = list(string)
 }
 
+variable "k8_cluster" {
+  description = "K8 clusterinformation"
+  type = map(any)
+}
+
 variable "app_name" {
   type        = string
   description = "Name of the app"
