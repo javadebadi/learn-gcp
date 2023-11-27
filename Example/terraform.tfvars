@@ -11,7 +11,8 @@ api_services = [
   "containerregistry.googleapis.com",
   "containerscanning.googleapis.com",
   "containeranalysis.googleapis.com",
-  "sourcerepo.googleapis.com"
+  "sourcerepo.googleapis.com",
+  "secretmanager.googleapis.com"
 ]
 k8_cluster = {
   name = "hello-cloudbuild"
@@ -22,3 +23,4 @@ k8_cluster = {
 
 app_name = "my-app"
 app_git_repo_name = "my-app-source"
+env_git_repo_name = "my-app-source-for-env"

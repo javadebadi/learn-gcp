@@ -42,3 +42,8 @@ output "k8_cluster_self_link" {
     description = "Detials of the created K8 cluster"
     value = module.k8_cluster.k8_cluster_self_link
 }
+
+output "app_github_pat_secret_id" {
+    description = "Id of the secret storage for the app github PAT"
+    value = module.app_github_pat.secret_id
+}
