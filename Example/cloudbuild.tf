@@ -55,9 +55,10 @@ resource "google_cloudbuild_trigger" "push_to_app_repo" {
 }
 
 
-resource "google_project_iam_binding" "secret_accessor_binding" {
-  project = var.project_id # Replace with your project ID
-  role    = "roles/secretmanager.secretAccessor"
+resource "google_project_iam_binding" "cloudbuild_service_account_role_bindings" {
+  project = var.project_id
+  for_each = toset(var.cloudbuild_service_account_roles)
+  role    = each.value
 
   members = [
     "serviceAccount:${var.project_number}@cloudbuild.gserviceaccount.com",

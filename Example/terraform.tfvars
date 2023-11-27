@@ -1,8 +1,8 @@
-project_id = "qwiklabs-gcp-04-53accf601b78"
+project_id = "qwiklabs-gcp-03-1a8f660068f6"
 project_name = "qwiklabs-gcp-04-53accf601b78"
-project_number = 219516083580
-region = "us-central1"
-zone = "us-central1-a"
+project_number = 1014637488753
+region = "us-east4"
+zone = "us-east4-b"
 api_services = [
   "cloudresourcemanager.googleapis.com",
   "container.googleapis.com",
@@ -16,11 +16,22 @@ api_services = [
 ]
 k8_cluster = {
   name = "hello-cloudbuild"
-  region = "us-central1"
+  region = "us-east4"
   num_nodes = 3
-  zone = "us-central1-a"
+  zone = "us-east4-b"
 }
 
 app_name = "my-app"
 app_git_repo_name = "my-app-source"
 env_git_repo_name = "my-app-source-for-env"
+
+cloudbuild_service_account_roles = [
+    "roles/secretmanager.secretAccessor",
+    "roles/container.developer",
+    "roles/source.writer"
+]
+
+git_config = {
+  username = "javadebadi"
+  email = "javad.ebadi.1990@gmail.com"
+}

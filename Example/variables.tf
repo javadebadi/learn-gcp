@@ -55,3 +55,16 @@ variable "google_map_api_key_secret_id" {
     type = string
     default = "google-map-api-key" 
 }
+
+variable "git_config" {
+  type = object({
+    username = string
+    email = string
+  })
+  description = "configuration of the git global user in OS"
+}
+
+variable "cloudbuild_service_account_roles" {
+    type = list(string)
+    description = "List of roles we want the service account for cloudbuild to have"
+}
