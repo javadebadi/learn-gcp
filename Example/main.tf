@@ -19,3 +19,8 @@ module "git_google_source" {
     source = "./git_google_source"
     repo_name = var.app_git_repo_name
 }
+
+module "k8_cluster" {
+    source = "./k8"
+    k8_cluster = var.k8_cluster
+}

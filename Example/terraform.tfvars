@@ -13,6 +13,12 @@ api_services = [
   "containeranalysis.googleapis.com",
   "sourcerepo.googleapis.com"
 ]
+k8_cluster = {
+  name = "hello-cloudbuild"
+  region = "us-east4"
+  num_nodes = 3
+  zone = "us-east4-a"
+}
 
 app_name = "my-app"
 app_git_repo_name = "my-app-source"
