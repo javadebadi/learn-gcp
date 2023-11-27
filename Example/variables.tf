@@ -45,3 +45,8 @@ variable "app_git_repo_name" {
     type = string
     description = "Name of the github and google source repo of the app"
 }
+
+variable "env_git_repo_name" {
+    type = string
+    description = "Name of the github and google source repo of the env"
+}

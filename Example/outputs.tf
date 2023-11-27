@@ -27,6 +27,11 @@ output "git_google_source_repo_url" {
     description = "URL of the git repo for the app in the google source git server"
     value  = module.git_google_source.repo_url
 }
+ 
+output "git_google_source_for_env_repo_url" {
+    description = "URL of the git repo for the env in the google source git server"
+    value  = module.git_google_source_for_env.repo_url
+}
 
 output "enabled_google_apis_and_services" {
     description = "List of enabled Google APIs and Services"

@@ -20,9 +20,14 @@ module "git_google_source" {
     repo_name = var.app_git_repo_name
 }
 
+module "git_google_source_for_env" {
+    source = "./git_google_source"
+    repo_name = var.env_git_repo_name
+}
+
 module "k8_cluster" {
     source = "./k8"
     k8_cluster = var.k8_cluster
 
-    depends_on = [ module.module.enabled_google_apis_and_services ]
+    depends_on = [ module.enabled_google_apis_and_services ]
 }
