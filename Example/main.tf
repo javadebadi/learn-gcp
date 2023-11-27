@@ -32,7 +32,16 @@ module "k8_cluster" {
     depends_on = [ module.enabled_google_apis_and_services ]
 }
 
+
+resource "time_sleep" "wait_120_seconds" {
+  depends_on = [ module.module.enabled_google_apis_and_services ]
+
+  create_duration = "120s"
+}
+
 module "app_github_pat" {
     source = "./github_token"
     secret_id = var.app_git_repo_name
+
+    depends_on = [ time_sleep.wait_120_seconds ]
 }
