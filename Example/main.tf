@@ -23,4 +23,6 @@ module "git_google_source" {
 module "k8_cluster" {
     source = "./k8"
     k8_cluster = var.k8_cluster
+
+    depends_on = [ module.module.enabled_google_apis_and_services ]
 }

@@ -36,6 +36,4 @@ output "enabled_google_apis_and_services" {
 output "k8_cluster_self_link" {
     description = "Detials of the created K8 cluster"
     value = module.k8_cluster.k8_cluster_self_link
-
-    depends_on = [ module.module.enabled_google_apis_and_services ]
 }
