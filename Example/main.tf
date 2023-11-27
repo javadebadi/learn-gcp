@@ -34,7 +34,7 @@ module "k8_cluster" {
 
 
 resource "time_sleep" "wait_120_seconds" {
-  depends_on = [ module.module.enabled_google_apis_and_services ]
+  depends_on = [ module.enabled_google_apis_and_services ]
 
   create_duration = "120s"
 }

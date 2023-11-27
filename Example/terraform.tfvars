@@ -2,7 +2,7 @@ project_id = "qwiklabs-gcp-03-4b119ab0e91f"
 project_name = "qwiklabs-gcp-03-4b119ab0e91f"
 project_number = 370853509872
 region = "us-east1"
-zone = "us-east1-a"
+zone = "us-east1-b"
 api_services = [
   "cloudresourcemanager.googleapis.com",
   "container.googleapis.com",
@@ -18,7 +18,7 @@ k8_cluster = {
   name = "hello-cloudbuild"
   region = "us-east1"
   num_nodes = 3
-  zone = "us-east1-a"
+  zone = "us-east1-b"
 }
 
 app_name = "my-app"
