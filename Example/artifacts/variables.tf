@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "project_id" {
-    description = "Project ID of the google project"
+  description = "Project ID of the google project"
 }
 
 variable "artifacts_registry_repository_name" {
