@@ -1,6 +1,6 @@
 variable "api_services" {
-    description = "List of api services that should be enabled for the project"
-    type = list(string)
+  description = "List of api services that should be enabled for the project"
+  type        = list(string)
 }
 
 variable "project_id" {

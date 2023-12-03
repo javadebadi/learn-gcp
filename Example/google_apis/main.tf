@@ -2,5 +2,5 @@
 resource "google_project_service" "this" {
   for_each = toset(var.api_services)
   project  = var.project_id
-  service = each.value
+  service  = each.value
 }
